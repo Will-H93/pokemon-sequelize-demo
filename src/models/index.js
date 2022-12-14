@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const PokemonModel = require('./pokemon')
-const TypeModel = require('./type')
+const TrainerModel = require('./trainer')
 
 const { PGNAME, PGUSER, PGPASSWORD, PGHOST, PGPORT } = process.env;
 
@@ -13,14 +13,14 @@ const setupDatabase = () => {
     })
 
     const Pokemon = PokemonModel(connection, Sequelize)
-    const Type = TypeModel(connection, Sequelize)
+    const Trainer = TrainerModel(connection, Sequelize)
 
-    Type.belongsTo(Pokemon, { as: 'type' })
+    Pokemon.belongsTo(Trainer, { as: 'trainer' })
 
     connection.sync({alter: true});
     return {
         Pokemon,
-        Type
+        Trainer
     }
 }
 
