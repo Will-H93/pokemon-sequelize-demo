@@ -3,6 +3,6 @@ module.exports = (sequelize, DataTypes) => {
         name: DataTypes.STRING
     }
 
-    const Trainer = sequelize.define('Type', schema)
+    const Trainer = sequelize.define('Trainer', schema)
     return Trainer
 }
