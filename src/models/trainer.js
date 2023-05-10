@@ -1,8 +1,9 @@
-module.exports = (sequelize, DataTypes) => {
-  const schema = {
-    name: DataTypes.STRING,
-  };
+const Trainer = (sequelize, DataTypes) => {
+    const schema = {
+        trainer_name: DataTypes.STRING
+    }
+    const Trainer = sequelize.define('trainer', schema)
+    return Trainer
+}
 
-  const Trainer = sequelize.define("Trainer", schema);
-  return Trainer;
-};
+module.exports = Trainer

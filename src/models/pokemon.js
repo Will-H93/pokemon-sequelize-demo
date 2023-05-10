@@ -1,9 +1,10 @@
-module.exports = (sequelize, DataTypes) => {
-  const schema = {
-    name: DataTypes.STRING,
-    type: DataTypes.STRING,
-  };
+const Pokemon = (sequelize, DataTypes) => {
+    const schema = {
+        name: DataTypes.STRING,
+        type: DataTypes.STRING
+    }
+    const pokemon = sequelize.define('pokemon', schema)
+    return pokemon
+}
 
-  const Pokemon = sequelize.define("Pokemon", schema);
-  return Pokemon;
-};
+module.exports = Pokemon
