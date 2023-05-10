@@ -1,7 +1,6 @@
 {
   "name": "pokemon-sequelize",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon -r dotenv/config index.js"
@@ -17,9 +16,10 @@
     "url": "https://github.com/Will-H93/pokemon-sequelize-demo/issues"
   },
   "homepage": "https://github.com/Will-H93/pokemon-sequelize-demo#readme",
+  "description": "",
   "dependencies": {
     "express": "^4.18.2",
-    "pg": "^8.9.0",
+    "pg": "^8.8.0",
     "sequelize": "^6.28.0"
   },
   "devDependencies": {
