@@ -28,7 +28,7 @@ services:
           name: pokemondb
           property: port
 
-database:
+databases:
   - name: pokemondb
     plan: free
     region: frankfurt
