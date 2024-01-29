@@ -35,7 +35,11 @@ const getPokemonByID = async (req, res) => {
 };
 
 const getByTrainerId = async (req, res) => {
-  const pokemons = await Pokemon.findAll({ where: req.params });
+  const pokemons = await Pokemon.findAll({
+    where: {
+      trainerId: req.params.trainerId
+    }
+  });
 
   res.status(200).json(pokemons);
 }
