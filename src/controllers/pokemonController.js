@@ -1,4 +1,5 @@
 const { Pokemon } = require("../models");
+const { Op } = require('sequelize')
 
 const createPokemon = async (req, res) => {
   await Pokemon.create(req.body).then((pokemons) => {
@@ -12,10 +13,19 @@ const getPokemon = async (req, res) => {
   });
 };
 
-const getPokemonByType = async (req, res) => {
-  const pokemons = await Pokemon.findAll({ where: req.params });
+const getPokemonByTypeOne = async (req, res) => {
+  const pokemons = await Pokemon.findAll({ where: req.params })
 
   res.status(200).json(pokemons);
+}
+const getPokemonByTypeTwo = async (req, res) => {
+  const pokemons = await Pokemon.findAll({
+    where: {
+      [Op.or]: [{ type: req.params.type1 }, { type: req.params.type2 }]
+    }
+  })
+
+  res.status(200).json(pokemons)
 };
 
 const getPokemonByID = async (req, res) => {
@@ -51,7 +61,8 @@ const deletePokemonById = async (req, res) => {
 module.exports = {
   getPokemon,
   getPokemonByID,
-  getPokemonByType,
+  getPokemonByTypeOne,
+  getPokemonByTypeTwo,
   getByTrainerId,
   createPokemon,
   updatePokemonByID,

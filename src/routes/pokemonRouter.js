@@ -1,15 +1,16 @@
-const express = require("express");
-
-const router = express.Router();
-
+const { Router } = require("express");
 const pokemonController = require("../controllers/pokemonController");
+
+const router = new Router();
 
 router
   .route("/")
   .get(pokemonController.getPokemon)
   .post(pokemonController.createPokemon);
 
-router.route("/type/:type").get(pokemonController.getPokemonByType);
+router.route("/type/:type").get(pokemonController.getPokemonByTypeOne);
+
+router.route("/type/:type1/:type2").get(pokemonController.getPokemonByTypeTwo);
 
 router.route("/id/:id").get(pokemonController.getPokemonByID);
 
