@@ -5,7 +5,7 @@ services:
     region: frankfurt
     plan: free
     buildCommand: npm install
-    startCommand: node index.js
+    startCommand: npm start
     envVars:
       - key: PGDATABASE
         fromDatabase:
@@ -28,9 +28,9 @@ services:
           name: pokemondb
           property: port
 
-databases:
+database:
   - name: pokemondb
     plan: free
     region: frankfurt
-    databaseName: pokemon
+    database: pokemon
     ipAllowList: []
