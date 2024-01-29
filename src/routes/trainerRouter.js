@@ -9,4 +9,7 @@ router
     .get(trainerController.getTrainer)
     .post(trainerController.createTrainer)
 
+router
+    .route("/:id").get(trainerController.getTrainerByID)
+
 module.exports = router
